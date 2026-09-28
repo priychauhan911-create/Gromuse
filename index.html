@@ -1,0 +1,225 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gromuse - Grocery Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- NAVBAR -->
+        <header class="navbar">
+            <div class="menu">☰</div>
+
+            <div class="logo">
+                <span>🛒</span>
+                Gromuse
+            </div>
+
+            <div class="search">
+                <input type="text" placeholder="Search for Grocery, Stores, Vegetable or Meat">
+                <button>⌕</button>
+            </div>
+
+            <div class="delivery">
+                <span>⚡</span>
+                <b>Order now</b> and get it within <strong>15 min!</strong>
+            </div>
+
+            <button class="cart">🛒</button>
+
+            <div class="avatar">👨🏻</div>
+        </header>
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content">
+                <h1>We bring the store<br>to your door</h1>
+
+                <p>
+                    Get organic produce and sustainably sourced<br>
+                    groceries delivery at up to 4% off grocery.
+                </p>
+
+                <button class="shop-btn">Shop now</button>
+            </div>
+
+            <div class="hero-image">
+                <div class="bag">
+                    <div class="groceries">
+
+                    </div>
+                    <div class="bag-logo">🛒</div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORIES -->
+        <section class="categories">
+
+            <div class="category">
+                <div>
+                    <h3>Vegetable</h3>
+                    <p>Local market</p>
+                </div>
+                <span>🥦</span>
+            </div>
+
+            <div class="category">
+                <div>
+                    <h3>Snacks & Breads</h3>
+                    <p>In store delivery</p>
+                </div>
+                <span>🥖</span>
+            </div>
+
+            <div class="category">
+                <div>
+                    <h3>Fruits</h3>
+                    <p>Comical free</p>
+                </div>
+                <span>🥝</span>
+            </div>
+
+            <div class="category">
+                <div>
+                    <h3>Chicken legs</h3>
+                    <p>Frozen Meal</p>
+                </div>
+                <span>🍗</span>
+            </div>
+
+            <div class="category">
+                <div>
+                    <h3>Milk & Dairy</h3>
+                    <p>Process food</p>
+                </div>
+                <span>🧀</span>
+            </div>
+
+            <button class="see-all">
+                <span>→</span>
+                See all
+            </button>
+
+        </section>
+
+
+        <!-- PRODUCTS -->
+        <section class="products-section">
+
+            <div class="section-title">
+                <h2>You might need</h2>
+                <a href="#">See more →</a>
+            </div>
+
+            <div class="products">
+
+                <!-- PRODUCT 1 -->
+                <div class="product">
+                    <div class="product-image beetroot">
+                        <span>🥬</span>
+
+                    </div>
+
+                    <h3>Beetroot<br>(Local shop)</h3>
+                    <p class="weight">500 gm.</p>
+
+                    <div class="price">17<sup>.29$</sup></div>
+
+                    <button class="add-btn" onclick="addProduct(this)">
+                        <span>+</span>
+                    </button>
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+                <div class="product">
+                    <div class="product-image">
+                        <span class="large-emoji">🥑</span>
+                    </div>
+
+                    <h3>Italian Avocado<br>(Local shop)</h3>
+                    <p class="weight">500 gm.</p>
+
+                    <div class="price">12<sup>.29$</sup></div>
+
+                    <button class="add-btn" onclick="addProduct(this)">
+                        <span>+</span>
+                    </button>
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+                <div class="product">
+                    <div class="product-image">
+                        <span class="large-emoji">🍜</span>
+                    </div>
+
+                    <h3>Szaam amm<br>(Process food)</h3>
+                    <p class="weight">500 gm.</p>
+
+                    <div class="price">14<sup>.29$</sup></div>
+
+                    <button class="add-btn" onclick="addProduct(this)">
+                        <span>+</span>
+                    </button>
+                </div>
+
+
+                <!-- PRODUCT 4 -->
+                <div class="product">
+                    <div class="product-image">
+                        <span class="large-emoji">🥩</span>
+                    </div>
+
+                    <h3>Beef Mixed<br>(Cut Bone)</h3>
+                    <p class="weight">500 gm.</p>
+
+                    <div class="price">16<sup>.29$</sup></div>
+
+                    <button class="add-btn" onclick="addProduct(this)">
+                        <span>+</span>
+                    </button>
+                </div>
+
+
+                <!-- PRODUCT 5 -->
+                <div class="product">
+                    <div class="product-image">
+                        <span class="large-emoji">🥤</span>
+                    </div>
+
+                    <h3>Cold drinks<br>(Sprite)</h3>
+                    <p class="weight">500 gm.</p>
+
+                    <div class="price">18<sup>.29$</sup></div>
+
+                    <button class="add-btn" onclick="addProduct(this)">
+                        <span>+</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="script.js?v=2"></script>
+</body>
+
+</html>
