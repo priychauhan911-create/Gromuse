@@ -129,10 +129,9 @@
             <div class="products">
 
                 <!-- PRODUCT 1 -->
-                <div class="product">
+                <div class="product" data-id="beetroot" data-name="Beetroot (Local shop)" data-price="17.29" data-weight="500 gm." data-emoji="🥬">
                     <div class="product-image beetroot">
                         <span>🥬</span>
-
                     </div>
 
                     <h3>Beetroot<br>(Local shop)</h3>
@@ -147,7 +146,7 @@
 
 
                 <!-- PRODUCT 2 -->
-                <div class="product">
+                <div class="product" data-id="avocado" data-name="Italian Avocado (Local shop)" data-price="12.29" data-weight="500 gm." data-emoji="🥑">
                     <div class="product-image">
                         <span class="large-emoji">🥑</span>
                     </div>
@@ -164,7 +163,7 @@
 
 
                 <!-- PRODUCT 3 -->
-                <div class="product">
+                <div class="product" data-id="szaam" data-name="Szaam amm (Process food)" data-price="14.29" data-weight="500 gm." data-emoji="🍜">
                     <div class="product-image">
                         <span class="large-emoji">🍜</span>
                     </div>
@@ -181,7 +180,7 @@
 
 
                 <!-- PRODUCT 4 -->
-                <div class="product">
+                <div class="product" data-id="beef" data-name="Beef Mixed (Cut Bone)" data-price="16.29" data-weight="500 gm." data-emoji="🥩">
                     <div class="product-image">
                         <span class="large-emoji">🥩</span>
                     </div>
@@ -198,7 +197,7 @@
 
 
                 <!-- PRODUCT 5 -->
-                <div class="product">
+                <div class="product" data-id="sprite" data-name="Cold drinks (Sprite)" data-price="18.29" data-weight="500 gm." data-emoji="🥤">
                     <div class="product-image">
                         <span class="large-emoji">🥤</span>
                     </div>
@@ -219,7 +218,109 @@
 
     </div>
 
-    <script src="script.js?v=2"></script>
+    <!-- CART DRAWER OVERLAY -->
+    <div id="cart-drawer-overlay" class="cart-drawer-overlay" aria-hidden="true"></div>
+
+    <!-- SLIDE-OVER CART DRAWER -->
+    <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart" aria-hidden="true">
+        <!-- Drawer Header -->
+        <div class="cart-drawer-header">
+            <div class="cart-drawer-title-group">
+                <div class="cart-drawer-title-row">
+                    <span class="cart-title-icon">🛒</span>
+                    <h2>Your Cart</h2>
+                </div>
+                <span id="cart-drawer-badge" class="cart-count-badge">0 items</span>
+            </div>
+            <button id="cart-drawer-close" class="cart-drawer-close" aria-label="Close Cart">✕</button>
+        </div>
+
+        <!-- Free Delivery Threshold Banner -->
+        <div class="delivery-threshold">
+            <div class="delivery-threshold-text" id="delivery-threshold-text">
+                Add <strong>$25.00</strong> more for <strong>FREE 15-min delivery!</strong> ⚡
+            </div>
+            <div class="delivery-progress-track">
+                <div class="delivery-progress-bar" id="delivery-progress-bar" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <!-- Cart Items List Container -->
+        <div id="cart-drawer-items" class="cart-drawer-items">
+            <!-- Dynamic items rendered by script.js -->
+        </div>
+
+        <!-- Cart Drawer Footer (Order Summary & Bill Calculation) -->
+        <div id="cart-drawer-footer" class="cart-drawer-footer">
+
+            <!-- Promo Code / Coupon Section -->
+            <div class="cart-promo-section">
+                <div class="promo-input-group">
+                    <span class="promo-tag-icon">🏷️</span>
+                    <input type="text" id="promo-code-input" placeholder="Promo code (e.g. GROMUSE10)" aria-label="Promo Code">
+                    <button type="button" id="apply-promo-btn" class="apply-promo-btn">Apply</button>
+                </div>
+                <div id="promo-message" class="promo-message"></div>
+                <div id="promo-applied-badge" class="promo-applied-badge" style="display: none;">
+                    <div class="promo-applied-info">
+                        <span>🎉 Coupon <strong id="applied-code-name">GROMUSE10</strong> applied (<span id="applied-code-desc">10% off</span>)</span>
+                    </div>
+                    <button type="button" id="remove-promo-btn" class="remove-promo-btn" title="Remove promo code">✕</button>
+                </div>
+            </div>
+
+            <!-- Bill Calculation Breakdown -->
+            <div class="cart-summary-breakdown">
+                <div class="cart-summary-row">
+                    <span>Item Subtotal</span>
+                    <span id="cart-subtotal" class="summary-val">$0.00</span>
+                </div>
+                <div class="cart-summary-row discount-row" id="cart-discount-row" style="display: none;">
+                    <span class="discount-title">Promo Discount <span id="discount-percent-tag">(-10%)</span></span>
+                    <span id="cart-discount-val" class="summary-val discount-val">-$0.00</span>
+                </div>
+                <div class="cart-summary-row">
+                    <div class="delivery-label-col">
+                        <span>15-min Lightning Delivery</span>
+                        <span class="delivery-subnote" id="delivery-condition-note">Free over $25.00</span>
+                    </div>
+                    <span id="cart-delivery-fee" class="summary-val free-tag">FREE</span>
+                </div>
+                <div class="cart-summary-row">
+                    <span>Estimated Tax (5%)</span>
+                    <span id="cart-tax" class="summary-val">$0.00</span>
+                </div>
+                <div class="cart-summary-divider"></div>
+                <div class="cart-summary-row total-row">
+                    <div class="total-label-col">
+                        <span class="grand-total-title">Grand Total</span>
+                        <span class="all-tax-note">All taxes & fees incl.</span>
+                    </div>
+                    <div class="grand-total-lime-badge">
+                        <span id="cart-total-price" class="summary-total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="checkout-btn" class="checkout-btn">
+                <span>Proceed to Checkout</span>
+                <span class="checkout-arrow">→</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- CHECKOUT TOAST NOTIFICATION -->
+    <div id="checkout-toast" class="checkout-toast" aria-live="polite">
+        <div class="toast-content">
+            <span class="toast-icon">🎉</span>
+            <div>
+                <h4>Order Placed Successfully!</h4>
+                <p>Delivering fresh to your door in 15 minutes.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>
